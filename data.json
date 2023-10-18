@@ -31,6 +31,14 @@
         "contact": "01-5249118",
         "address": "Thulobharyang Kathmandu, Nepal",
         "description": "Official Detail of Transport Management Office Thulobharyang Kathmandu"
+      },
+      {
+        "name of office": "TMO Baglung",
+        "url": "https://baglungtmo.dotm.gov.np/",
+        "email": "transmgbaglung@gmail.com",
+        "contact": "068-522051",
+        "address": "Baglung, Nepal",
+        "description": "Official Detail of Transport Managemet Office Baglung"
       }
     ]
 }
