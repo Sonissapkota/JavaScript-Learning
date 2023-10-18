@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor Game</title>
+</head>
+<body>
+    <h2>Welcome to (Rock, Paper and Scissor) game!</h2><br/>
+    <p>Select your choice:</p><br/>
+    <button onclick="games('Rock');">Rock</button>
+    <button onclick="games('Paper');">Paper</button>
+    <button onclick="games('Scissor')">Scissor</button>
+    <script>
+        let userScore = 0;
+        let computerScore = 0;
+        function games (userChoice){
+            
+            const possibleCase = ["Rock", "Paper", "Scissor"];
+            const computerMove = possibleCase[Math.floor(Math.random()*possibleCase.length)];
+            if(userChoice === computerMove){
+                console.log(`Game is tie, Your Choice ${userChoice} & ComputerChoice ${computerMove}`);
+                console.log(`User Score:${userScore} Computer Score:${computerScore}`);
+            }else if(
+                (userChoice === "Rock" && computerMove === "Scissor") ||
+                (userChoice === "Paper" && computerMove === "Rock") ||
+                (userChoice === "Scissor" && computerMove === "Paper")
+            ){
+                userScore = userScore + 1;
+                console.log(`You won, Your Choice ${userChoice} & ComputerChoice ${computerMove}`);
+                console.log(`User Score:${userScore} Computer Score:${computerScore}`);
+            }else{
+                computerScore = computerScore + 1;
+                console.log(`Computer won, Your Choice ${userChoice} & ComputerChoice ${computerMove}`);
+                console.log(`User Score:${userScore} Computer Score:${computerScore}`);
+            }
+        };
+    </script>
+</body>
+</html>

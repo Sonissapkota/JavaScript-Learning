@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amusement Park</title>
+</head>
+<body>
+    <script>
+        const name = ["Ram", "Shyam", "Hari", "Bishnu", "Gopal", "Radha", "Rajeev"];
+        const age = [22,13,35,16,10,56,8];
+
+        const visitorName = name[Math.floor(Math.random()*name.length)];
+        const visitorAge = age[Math.floor(Math.random()*age.length)];
+
+        if(visitorAge<=13){
+           console.log(`You are ${visitorAge} years old. You can visit the amusement park with discount ${visitorName}`);
+        }else{
+            console.log(`You are ${visitorAge} years old. You can't visit the amusement park with discount ${visitorName}`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function using parameter</title>
+</head>
+<body>
+    <script>
+        //Defining default value in the parameter
+        function calculateTax(Income, taxRate = 0.13){
+            return Income * taxRate;
+        }
+
+        let taxAmount = calculateTax(20000, 0.10);
+        console.log(taxAmount);
+    </script>
+</body>
+</html>
