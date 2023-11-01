@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        const name = {
+            name1: "sonis",
+            name2: "deepti",
+            name3: "anisha"
+        }
+        console.log(name);
+        name.name1 = "rupali";
+        console.log(name);
+        // as object points to the reference therefore there is no effect when we change the value having const object
+        const user = name;
+        console.log(user);
+        console.log(user.name1);
+        // in the above line of code we are passing the reference variable of name object to user
+    </script>
+</body>
+</html>

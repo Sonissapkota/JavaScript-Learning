@@ -3,9 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Rock Paper Scissor Game</title>
 </head>
 <body>
-    
+    <h2>Welcome to (Rock, Paper and Scissor) game!</h2><br/>
+    <p>Select your choice:</p><br/>
+    <button onclick="games('Rock');">Rock</button>
+    <button onclick="games('Paper');">Paper</button>
+    <button onclick="games('Scissor')">Scissor</button>
+    <button onClick ="resetScore()">Reset</button>
+    <script>
+        let score = JSON.parse(localStorage.getItem("score")) || {
+            userScore: 0,
+            computerScore: 0,
+            tie: 0
+        };
+        
+        function resetScore(){
+            score.userScore = 0;
+            score.computerScore = 0;
+            score.tie = 0;
+            updateScore();
+        }
+
+        function updateScore(){
+            localStorage.setItem("score", JSON.stringify(score));
+        }
+        function games (userChoice){
+            
+            const possibleCase = ["Rock", "Paper", "Scissor"];
+            const computerMove = possibleCase[Math.floor(Math.random()*possibleCase.length)];
+            if(userChoice === computerMove){
+                score.tie += 1;
+            }else if(
+                (userChoice === "Rock" && computerMove === "Scissor") ||
+                (userChoice === "Paper" && computerMove === "Rock") ||
+                (userChoice === "Scissor" && computerMove === "Paper")
+            ){
+                score.userScore += 1;
+            }else{
+                score.computerScore += 1;
+            }
+            updateScore();
+            alert(`Computer choice is ${computerMove} and User Choice is ${userChoice} \n 
+                    User Score: ${score.userScore}, Computer Score: ${score.computerScore}, Tie: ${score.tie}
+            `);
+        };
+    </script>
 </body>
 </html>

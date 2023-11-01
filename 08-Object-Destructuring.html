@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects in JS</title>
+</head>
+<body>
+    <script>
+        const items = {
+            cart_no: 101,
+            item_name: "ribbon"
+        }
+        console.log(items);
+        //Destructuring
+        const {cart_no, item_name} = items;
+        console.log(cart_no);
+        console.log(item_name);
+        //The above line code is similar to this
+        const cart_num = items.cart_no;
+        const item_names = items.item_name;
+        console.log(cart_num);
+        console.log(item_names);
+    </script>
+</body>
+</html>
