@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1></h1>
+    <h2 class="js-tag"></h2>
+    <script>
+        /*
+        document.body.innerHTML = "Hello we are learning javascript";
+        document.title = "We changed the title"
+
+        //creating tag using JS
+        document.body.innerHTML = "<button>Log in</button>"
+
+        */
+        
+        /*
+        // HTML tags are treated as object in javascript
+        console.log(typeof document.querySelector("h1"));
+        console.log(document.querySelector("h1"));
+
+        document.querySelector('h1').innerHTML = "Hello";
+        */
+
+        /*
+       // Here we are accessing the element by their tag name
+       document.querySelector("h1").innerHTML = "Welcome to JS learning";
+
+       // Here we are accessing the element by their attribute name
+       document.querySelector(".js-tag").innerHTML = "Welcome to JS learning";
+       */
+
+       // As we know that html element are treated as object in JS therefore we can store them in variable
+       const textElement = document.querySelector("h1");
+       textElement.innerHTML = "Welcome to JS learning";
+       
+    </script>
+</body>
+</html>
