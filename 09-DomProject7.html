@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 7</title>
+</head>
+<body>
+    <p>Cart Design</p>
+    <button onclick="showCartQuantity()">Show quantity</button>
+    <button onclick="updateCartQuantity(1)">Add to cart</button>
+    <button onclick="updateCartQuantity(2)">+2</button>
+    <button onclick="updateCartQuantity(3)">+3</button>
+    <button onclick="updateCartQuantity(4)">+4</button>
+    <button onclick="updateCartQuantity(5)">+5</button>
+    <button onclick="updateCartQuantity(-1)">Remove from cart</button>
+    <button onclick="updateCartQuantity(-2)">-2</button>
+    <button onclick="updateCartQuantity(-3)">-3</button>
+    <p class="js-cartStatus"></p>
+    <script>
+        let cartQuantity = 0;
+
+        showCartQuantity();
+
+        function updateCartQuantity(item){
+            if(cartQuantity+item > 10){
+                alert("Cart is full");
+                return
+            }else if(cartQuantity+item == 0){
+                alert("Cart is empty");
+            }
+
+            cartQuantity += item;
+            showCartQuantity();
+        }
+
+        function showCartQuantity(){
+            document.querySelector(".js-cartStatus").innerHTML = `Cart Quantity: ${cartQuantity}`;
+        }
+    </script>
+</body>
+</html>

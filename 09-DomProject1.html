@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Projects</title>
+</head>
+<body>
+    <h2>Welcome to Rock Paper Scissor Game!</h2><br/>
+    <button onclick="Games('Rock')">Rock</button>
+    <button onclick="Games('Paper')">Paper</button>
+    <button onclick="Games('Scissor')">Scissor</button>
+    <p class="js-result"></p>
+    <p class="js-choice"></p>
+    <p class="js-score"></p>
+    <button onclick="ResetScore()">Reset Score</button>
+    <script>
+
+        // Getting score from the local storage if present else assigning them 0
+        let Score = JSON.parse(localStorage.getItem("score")) || {
+            userScore: 0,
+            computerScore: 0,
+            tie: 0
+        };
+
+        // This reset score from the object and updates the result in the localstorage
+        function ResetScore(){
+            Score.userScore = 0;
+            Score.computerScore = 0;
+            Score.tie = 0;
+            updateScore();
+            document.querySelector(".js-score").innerHTML = `
+            Computer: ${Score.computerScore} Your: ${Score.userScore} Tie: ${Score.tie}
+            `
+        }
+
+        // When we have to update the score (Reset, After evey new games) we use this function
+        function updateScore(){
+            localStorage.setItem("score", JSON.stringify(Score));
+        }
+
+        function Games(UserChoice){
+            const possibleCases = ["Rock", "Paper", "Scissor"];
+            const computerChoice = possibleCases[Math.floor(Math.random()*possibleCases.length)];
+            console.log(computerChoice);
+            if(UserChoice == computerChoice){
+                Score.tie += 1;
+                document.querySelector(".js-result").innerHTML = "Game is tie"
+            }else if(
+                UserChoice == "Rock" && computerChoice == "Scissor" ||
+                UserChoice == "Paper" && computerChoice == "Rock" ||
+                UserChoice == "Scissor" && computerChoice == "Paper"
+            ){
+                Score.userScore += 1;
+                document.querySelector(".js-result").innerHTML = "You Won"
+            }else{
+                Score.computerScore += 1;
+                document.querySelector(".js-result").innerHTML = "Computer Won"
+            }
+
+            document.querySelector(".js-score").innerHTML = `
+            Computer: ${Score.computerScore} Your: ${Score.userScore} Tie: ${Score.tie}
+            `
+            document.querySelector(".js-choice").innerHTML = `
+            <b>Your Choice:${UserChoice} && Computer Choice:${computerChoice}</b>
+            `
+            updateScore();
+        }
+    </script>
+</body>
+</html>

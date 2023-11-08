@@ -1,0 +1,24 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM projects</title>
+ </head>
+ <body>
+    <!-- Creating youtube subscribe button -->
+    <p>YouTube subscribe button</p>
+    <button onclick="subscribed()">Subscribe</button>
+    <script>
+        function subscribed(){
+            const subscribeElement = document.querySelector("button");
+            if(subscribeElement.innerText == "Subscribe"){
+                subscribeElement.innerHTML = "Subscribed"
+            }else if(subscribeElement.innerText == "Subscribed"){
+                subscribeElement.innerHTML = "Subscribe"
+            }
+            // In the above line as we can see we are using innetText beacuse to avoid storing spaces
+        }
+    </script>
+ </body>
+ </html>

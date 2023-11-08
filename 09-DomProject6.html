@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 6</title>
+</head>
+<body>
+    <p>Enter the price of a product:</p>
+    <input type="text" class="js-price"/>
+    <button onclick="jsParsePrice()">Calculate</button>
+    <p class="js-result"></p>
+    <script>
+        function jsParsePrice(){
+            let price = document.querySelector(".js-price").value;
+            let cost = price*100;
+
+            if(price <=40){
+                cost = cost+1000;
+                document.querySelector(".js-result").innerHTML = `The total cost is: ${cost}`;
+            }else{
+                document.querySelector(".js-result").innerHTML = `The total cost is: ${cost}`;
+            }
+        }
+    </script>
+</body>
+</html>
